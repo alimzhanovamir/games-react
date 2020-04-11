@@ -4,16 +4,16 @@ import List from "../components/list/list";
 import Header from "../components/header/header";
 import Pagination from "../components/pagination/pagination";
 
-function Layout({state, favoriteGames}) {
+function Layout({loadedFlag}) {
 
-	if ( state ) {
+	if ( loadedFlag ) {
 		return (
 			<div className={cls['layout']}>
 				<Header/>
 				<main className={cls['main']}>
 					<h2>Все игры</h2>
 					<Pagination/>
-					<List games={state.slice(0,100)} favoriteGames={favoriteGames}/>
+					<List/>
 					<Pagination/>
 				</main>
 			</div>
