@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/egamings-test-react/precache-manifest.1e15a315c2fafe012017f3ba0a7f8dd2.js"
+  "/egamings-test-react/precache-manifest.55ef6ff057173038ff7e283fdc49f5b9.js"
 );
 
 self.addEventListener('message', (event) => {
