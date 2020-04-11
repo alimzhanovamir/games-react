@@ -2,6 +2,7 @@ import React from "react";
 import cls from './layout.module.scss';
 import List from "../components/list/list";
 import Header from "../components/header/header";
+import Pagination from "../components/pagination/pagination";
 
 function Layout({state}) {
 
@@ -11,7 +12,9 @@ function Layout({state}) {
 				<Header/>
 				<main className={cls['main']}>
 					<h2>Все игры</h2>
-					<List games={state.slice(0,30)}/>
+					<Pagination/>
+					<List games={state.slice(0,100)}/>
+					<Pagination/>
 				</main>
 			</div>
 		);
