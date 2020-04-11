@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import cls from './list.module.scss';
 import GameCard from "../game-card/game-card";
+import {GamesContext} from "../../App";
 
-function List({games, favoriteGames}) {
-	console.log(games[0]);
+function List() {
+	const { games, topGames } = useContext(GamesContext);
+	console.log('log',games,topGames)
 	return (
 		<ul className={cls['list']}>
 
-			{favoriteGames.map( game => (
+			{topGames.map( game => (
 					<li className={cls['list__item']} key={game.ID}>
 						<GameCard
 							imageSrc={game.ImageFullPath}
