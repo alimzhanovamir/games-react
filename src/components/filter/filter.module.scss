@@ -8,8 +8,17 @@
   border-radius: 3px;
   border: 1px solid #000;
   padding: 8px 10px;
-  color: #fff;
+  color: #fcc201;
   font-size: 16px;
+
+  &::placeholder {
+    color: #fcc201;
+    transition: opacity .3s;
+  }
+
+  &:focus::placeholder {
+    opacity: 0;
+  }
 }
 
 .filter__search {
