@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
+import Layout from "./layout/layout";
 
 function App() {
+
+  const [state, setState] = useState(false);
+
+  useEffect(()=> {
+    fetch('https://www.gbchip.com/api/v1/games')
+      .then(res => {  return res.json() })
+      .then(res => {
+        console.log(res.games);
+        setTimeout(()=> setState(res.games), 1000);
+      })
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout state={state}/>
   );
+
 }
 
 export default App;

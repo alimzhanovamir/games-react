@@ -1,0 +1,35 @@
+$colGutter: 20px;
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: $colGutter;
+  grid-row-gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media (min-width: 1600px) {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+.list__item {
+
+}
