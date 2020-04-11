@@ -8,7 +8,7 @@ function Filter() {
 		<form className={cls['filter']}>
 			<input className={cls['filter__search']} type="text" placeholder='Поиск'/>
 			<select className={cls['filter__number']} name="" id="">
-				{countElementsOnPage.map( value => <option value={value}>{value}</option> )}
+				{countElementsOnPage.map( value => <option value={value} key={value}>{value}</option> )}
 			</select>
 		</form>
 	)
