@@ -1,9 +1,9 @@
 import React from "react";
 import cls from './game-card.module.scss';
 
-function GameCard({ imageSrc, name }) {
+function GameCard({ imageSrc, name, modClass }) {
 	return (
-		<article className={cls['game-card']}>
+		<article className={` ${cls['game-card']} ${ modClass ? cls['game-card--top'] : null }`}>
 			<div className={cls['game-card__cover']}>
 				<img className={cls['game-card__image']} src={imageSrc} alt={`Изображение игры ${name}`}/>
 			</div>
