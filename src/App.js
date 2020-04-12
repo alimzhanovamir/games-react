@@ -11,7 +11,7 @@ function App() {
   const randomTopGames = [];
 
   useEffect(()=> {
-    fetch('https://www.gbchip.com/api/v1/games')
+    fetch('https://alimzhanovamir.herokuapp.com/games')
       .then(res => {  return res.json() })
       .then(res => {
         console.log('get')

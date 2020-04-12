@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eedf3773-7ad6-4a7c-93ca-59d0650e8255" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +35,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pet-server" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
   </component>
   <component name="RecentsManager">
@@ -59,7 +58,8 @@
       <workItem from="1586540975060" duration="4088000" />
       <workItem from="1586549187893" duration="600000" />
       <workItem from="1586603232683" duration="320000" />
-      <workItem from="1586606983076" duration="13547000" />
+      <workItem from="1586606983076" duration="21196000" />
+      <workItem from="1586711317470" duration="1116000" />
     </task>
     <servers />
   </component>
@@ -71,10 +71,11 @@
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state x="-839" y="297" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/-1920.0.1920.1050/0.0.1920.1050@-1920.0.1920.1050" timestamp="1586607227279" />
-    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1586547373844">
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1586711395508">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="280" key="FileChooserDialogImpl/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1586547373844" />
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050/-1280.48.1280.994@0.0.1920.1050" timestamp="1586711395508" />
     <state x="-824" y="247" key="run.anything.popup" timestamp="1586618902217">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
