@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "95aff06611f536a72845f0861dc03c61",
+    "revision": "6bcdbaeeb3803f59b2c879b1467d19c1",
     "url": "/egamings-test-react/index.html"
   },
   {
-    "revision": "499ecc817e51e02afc3e",
-    "url": "/egamings-test-react/static/css/main.71973e83.chunk.css"
+    "revision": "59300f73cae6c646b673",
+    "url": "/egamings-test-react/static/css/main.27385840.chunk.css"
   },
   {
     "revision": "abd9c1fd01a1b507d4fc",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/egamings-test-react/static/js/2.fc1e3995.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "499ecc817e51e02afc3e",
-    "url": "/egamings-test-react/static/js/main.d4247e52.chunk.js"
+    "revision": "59300f73cae6c646b673",
+    "url": "/egamings-test-react/static/js/main.ef5a5a6d.chunk.js"
   },
   {
     "revision": "f08d7f66323d07e4f7cf",

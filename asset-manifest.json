@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/egamings-test-react/static/css/main.71973e83.chunk.css",
-    "main.js": "/egamings-test-react/static/js/main.d4247e52.chunk.js",
-    "main.js.map": "/egamings-test-react/static/js/main.d4247e52.chunk.js.map",
+    "main.css": "/egamings-test-react/static/css/main.27385840.chunk.css",
+    "main.js": "/egamings-test-react/static/js/main.ef5a5a6d.chunk.js",
+    "main.js.map": "/egamings-test-react/static/js/main.ef5a5a6d.chunk.js.map",
     "runtime-main.js": "/egamings-test-react/static/js/runtime-main.e0772d0c.js",
     "runtime-main.js.map": "/egamings-test-react/static/js/runtime-main.e0772d0c.js.map",
     "static/js/2.fc1e3995.chunk.js": "/egamings-test-react/static/js/2.fc1e3995.chunk.js",
     "static/js/2.fc1e3995.chunk.js.map": "/egamings-test-react/static/js/2.fc1e3995.chunk.js.map",
     "index.html": "/egamings-test-react/index.html",
-    "precache-manifest.55ef6ff057173038ff7e283fdc49f5b9.js": "/egamings-test-react/precache-manifest.55ef6ff057173038ff7e283fdc49f5b9.js",
+    "precache-manifest.c9e28fabe1dfa4fbcff9612769433af3.js": "/egamings-test-react/precache-manifest.c9e28fabe1dfa4fbcff9612769433af3.js",
     "service-worker.js": "/egamings-test-react/service-worker.js",
-    "static/css/main.71973e83.chunk.css.map": "/egamings-test-react/static/css/main.71973e83.chunk.css.map",
+    "static/css/main.27385840.chunk.css.map": "/egamings-test-react/static/css/main.27385840.chunk.css.map",
     "static/js/2.fc1e3995.chunk.js.LICENSE.txt": "/egamings-test-react/static/js/2.fc1e3995.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e0772d0c.js",
     "static/js/2.fc1e3995.chunk.js",
-    "static/css/main.71973e83.chunk.css",
-    "static/js/main.d4247e52.chunk.js"
+    "static/css/main.27385840.chunk.css",
+    "static/js/main.ef5a5a6d.chunk.js"
   ]
 }
