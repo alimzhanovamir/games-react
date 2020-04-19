@@ -23,12 +23,18 @@
   color: #fcc201;
   font-size: 12px;
   cursor: pointer;
+  outline-color: #333a47;
   transition: background-color .3s, color .3s;
 
   &:hover,
-  &.active {
-    background-color: gold;
+  &.active,
+  &--active{
+    background-color: #fcc201;
     color: #000;
+  }
+
+  &:disabled {
+    opacity: .5;
   }
 }
 

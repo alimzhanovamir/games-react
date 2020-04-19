@@ -33,3 +33,26 @@ $colGutter: 20px;
 .list__item {
 
 }
+
+.list-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-image: url('/logo192.png');
+}
+
+.list-empty__inner {
+  text-align: center;
+}
+
+.list-empty__image {
+  height: 200px;
+  margin-bottom: 15px;
+}
+
+.list-empty__text {
+  color: #fcc201;
+  font-size: 26px;
+  text-transform: uppercase;
+}

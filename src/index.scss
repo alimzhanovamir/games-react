@@ -4,7 +4,9 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  width: 100%;
+  height: 100%;
   background-color: #333a47;
   margin: 0;
   font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

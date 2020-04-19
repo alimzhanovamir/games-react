@@ -4,10 +4,10 @@ import List from "../components/list/list";
 import Header from "../components/header/header";
 import Pagination from "../components/pagination/pagination";
 import {useStore} from "effector-react";
-import {loaded} from "../store/store";
+import {$loaded} from "../store/store";
 
 function Layout() {
-	const loadedFlag = useStore(loaded);
+	const loadedFlag = useStore($loaded);
 	if ( loadedFlag ) {
 		return (
 			<div className={cls['layout']}>
