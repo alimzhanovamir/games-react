@@ -17,7 +17,7 @@ function Filter() {
 	const selectValues = useStore($numbersOfElementsOnPageValues);
 	const categories = useStore($categories);
 
-	console.log(searchValue)
+	// console.log(searchValue)
 	function handleClick(e) {
 		console.log('click');
 		e.preventDefault();

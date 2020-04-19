@@ -31,8 +31,7 @@ export const $filterData = combine({
 });
 
 
-// Events
-export const showList = createEvent();
+// Events:
 export const setCategories = createEvent();
 export const searchChange = createEvent();
 export const setFilterCategory = createEvent();
@@ -40,7 +39,7 @@ export const setNumberOfElementsOnPage = createEvent();
 export const setPagesCount = createEvent();
 export const setNumberOfPages = createEvent();
 
-// Effects
+// Effects:
 export const getRequest = createEffect('get request', {
 	async handler() {
 		return false
@@ -83,20 +82,27 @@ $loaded
 	.on(getRequest.done, (state, {result}) => false );
 
 
-$searchForm.on(searchChange, (state, result) => result.toLowerCase() );
+$searchForm.on(searchChange, (state, result) => {
+	setNumberOfPages(1);
+	return result.toLowerCase()
+} );
 
-$currentCategoryID.on(setFilterCategory, (state, result) => result);
-$numberOfElementsOnPage.on(setNumberOfElementsOnPage, (state, result) => {
-	setNumberOfPages(1)
+$currentCategoryID.on(setFilterCategory, (state, result) => {
+	setNumberOfPages(1);
 	return result
 });
+
+$numberOfElementsOnPage.on(setNumberOfElementsOnPage, (state, result) => {
+	setNumberOfPages(1);
+	return result
+});
+
 $numberOfPages.on(setNumberOfPages, (state, pageNumber) => pageNumber );
 
 //
 $filterGames.on($filterData,(state, result) => {
 	const searchString = $searchForm.getState();
 	const category = $currentCategoryID.getState();
-
 	let games = $games.getState();
 
 	if ( searchString !== '' ) {
@@ -135,13 +141,15 @@ $paginationCount.on(setPagesCount, (state, numberOfGames) => {
 	const arr = [];
 
 	if ( numberOfGames > 0 ) {
-		pages = Math.ceil( numberOfGames / $numberOfElementsOnPage.getState());
+		let x = numberOfGames / $numberOfElementsOnPage.getState()
+		pages = Math.ceil( x);
+		// console.log(x)
 		// console.log(pages)
 	}
 
 	if ( pages > 1 ) {
-		for (let i = $currentPage.getState(); i < pages; i++) {
-			arr.push(i)
+		for (let i = 0; i < pages; i++) {
+			arr.push(i+1)
 		}
 	}
 	else if ( pages === 1 ) {
