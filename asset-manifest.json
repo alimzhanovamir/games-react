@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/games-react/static/css/main.d797b794.chunk.css",
-    "main.js": "/games-react/static/js/main.c894344e.chunk.js",
-    "main.js.map": "/games-react/static/js/main.c894344e.chunk.js.map",
+    "main.css": "/games-react/static/css/main.2f706f11.chunk.css",
+    "main.js": "/games-react/static/js/main.48bafdbb.chunk.js",
+    "main.js.map": "/games-react/static/js/main.48bafdbb.chunk.js.map",
     "runtime-main.js": "/games-react/static/js/runtime-main.4a9ecbe0.js",
     "runtime-main.js.map": "/games-react/static/js/runtime-main.4a9ecbe0.js.map",
-    "static/js/2.3dc34d02.chunk.js": "/games-react/static/js/2.3dc34d02.chunk.js",
-    "static/js/2.3dc34d02.chunk.js.map": "/games-react/static/js/2.3dc34d02.chunk.js.map",
+    "static/js/2.4b225d0e.chunk.js": "/games-react/static/js/2.4b225d0e.chunk.js",
+    "static/js/2.4b225d0e.chunk.js.map": "/games-react/static/js/2.4b225d0e.chunk.js.map",
     "index.html": "/games-react/index.html",
-    "precache-manifest.7c352f806c1f65cdd5ae0ef8602f2372.js": "/games-react/precache-manifest.7c352f806c1f65cdd5ae0ef8602f2372.js",
+    "precache-manifest.caaaa5f83b5c1264fa6cfd8a13ff7f60.js": "/games-react/precache-manifest.caaaa5f83b5c1264fa6cfd8a13ff7f60.js",
     "service-worker.js": "/games-react/service-worker.js",
-    "static/css/main.d797b794.chunk.css.map": "/games-react/static/css/main.d797b794.chunk.css.map",
-    "static/js/2.3dc34d02.chunk.js.LICENSE.txt": "/games-react/static/js/2.3dc34d02.chunk.js.LICENSE.txt",
+    "static/css/main.2f706f11.chunk.css.map": "/games-react/static/css/main.2f706f11.chunk.css.map",
+    "static/js/2.4b225d0e.chunk.js.LICENSE.txt": "/games-react/static/js/2.4b225d0e.chunk.js.LICENSE.txt",
     "static/media/nofound.png": "/games-react/static/media/nofound.4ab1dace.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4a9ecbe0.js",
-    "static/js/2.3dc34d02.chunk.js",
-    "static/css/main.d797b794.chunk.css",
-    "static/js/main.c894344e.chunk.js"
+    "static/js/2.4b225d0e.chunk.js",
+    "static/css/main.2f706f11.chunk.css",
+    "static/js/main.48bafdbb.chunk.js"
   ]
 }
