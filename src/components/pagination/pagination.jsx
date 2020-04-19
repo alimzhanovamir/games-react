@@ -10,6 +10,38 @@ function Pagination() {
 	// console.log('Количество страниц = '+pages.length);
 	// console.log('Текущая страница = '+numberOfPages);
 
+	function pagination(c, m) {
+		var current = c,
+			last = m,
+			delta = 2,
+			left = current - delta,
+			right = current + delta + 1,
+			range = [],
+			rangeWithDots = [],
+			l;
+
+		for (let i = 1; i <= last; i++) {
+			if (i == 1 || i == last || i >= left && i < right) {
+				range.push(i);
+			}
+		}
+
+		for (let i of range) {
+			if (l) {
+				if (i - l === 2) {
+					rangeWithDots.push(l + 1);
+				} else if (i - l !== 1) {
+					rangeWithDots.push('...');
+				}
+			}
+			rangeWithDots.push(i);
+			l = i;
+		}
+
+		return rangeWithDots;
+	}
+	const arr = pagination(numberOfPages, pages.length)
+
 	if ( pages.length ) {
 		return (
 			<div className={cls['pagination']}>
@@ -20,14 +52,16 @@ function Pagination() {
 							onClick={() => setNumberOfPages(--numberOfPages)}
 							disabled={numberOfPages === 1 ? true : false}>Назад</button>
 					</li>
-					{pages.map( page => (
-						<li className={cls['pagination__item']} key={page}>
+					{arr.map( (page, index) => {
+						console.log(page)
+						return(
+						<li className={cls['pagination__item']} key={index}>
 							<button
 								className={` ${cls['pagination__button']}  ${ page === numberOfPages ? cls['pagination__button--active'] : null } `}
 								onClick={() => setNumberOfPages(page)}
 								disabled={page === numberOfPages ? true : false}>{page}</button>
 						</li>
-					))}
+					)})}
 					<li className={cls['pagination__item']}>
 						<button
 							className={`${cls['pagination__button']} ${cls['pagination__button--next']}`}
