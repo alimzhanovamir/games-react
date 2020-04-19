@@ -26,15 +26,19 @@
   outline-color: #333a47;
   transition: background-color .3s, color .3s;
 
-  &:hover,
-  &.active,
-  &--active{
-    background-color: #fcc201;
-    color: #000;
+  &:disabled:not(&--active) {
+    opacity: .5;
   }
 
   &:disabled {
-    opacity: .5;
+    cursor: auto;
+  }
+
+  &:hover:not(:disabled),
+  &--active{
+    background-color: #fcc201;
+    color: #000;
+    opacity: 1;
   }
 }
 

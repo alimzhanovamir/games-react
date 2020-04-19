@@ -7,7 +7,6 @@ const selectValues = [15, 30, 50, 100];
 export const $games = createStore([]);
 export const $filterGames = createStore([]);
 export const $loaded = createStore(false);
-export const $filtered = createStore(false);
 
 // Filter stores:
 export const $numbersOfElementsOnPageValues = createStore(selectValues);
