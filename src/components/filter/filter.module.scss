@@ -1,24 +1,12 @@
 .filter {
-
+  text-align: right;
+  @media (min-width: 768px) {
+    display: flex;
+  }
 }
 
-.filter__refresh {
-  display: inline-block;
-  min-width: 36px;
-  background-color: #333a47;
-  border-radius: 3px;
-  border: 1px solid #000;
-  margin-right: 20px;
-  padding: 7px 10px;
-  font-size: 16px;
-  color: #fcc201;
-  cursor: pointer;
-  outline-color: #fcc201;
-  transition: background-color .3s;
-
-  &:hover {
-    background-color: lighten(#333a47, 10%);
-  }
+.filter__selection {
+  display: flex;
 }
 
 .filter__search,
@@ -51,10 +39,21 @@
 }
 
 .filter__search {
-  margin-right: 20px;
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
   padding-left: 15px;
+
+  @media (min-width: 768px) {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
 }
 
 .filter__number + .filter__number {
   margin-left: 20px;
+}
+
+.filter__number--wide {
+  flex: 1 0 auto;
 }
