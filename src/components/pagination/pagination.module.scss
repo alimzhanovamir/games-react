@@ -1,5 +1,5 @@
 .pagination {
-  margin: 30px 0;
+  margin: 0 0 30px;
 }
 
 .pagination__list {
@@ -49,4 +49,48 @@
 .pagination__button-next {
 
 }
+
+.mobile-pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 0 30px;
+}
+
+.mobile-pagination__button {
+  background-color: #333a47;
+  border-radius: 3px;
+  border: 1px solid #fcc201;
+  padding: 3px 10px;
+  color: #fcc201;
+  font-size: 20px;
+  cursor: pointer;
+  outline-color: #333a47;
+  transition: background-color .3s, color .3s;
+
+  &:disabled:not(&--active) {
+    opacity: .5;
+  }
+
+  &:disabled {
+    cursor: auto;
+  }
+
+  &:active:not(:disabled) {
+    background-color: #fcc201;
+    color: #000;
+    opacity: 1;
+  }
+}
+
+.mobile-pagination__count {
+  min-width: 75px;
+  margin: 0 10px;
+  color: #fcc201;
+  font-size: 20px;
+  line-height: 1;
+  text-align: center;
+}
+
+//.mobile-pagination {}
 
