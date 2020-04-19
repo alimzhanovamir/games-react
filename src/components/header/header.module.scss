@@ -13,6 +13,15 @@
 }
 
 .header__title {
+  font-size: 1.5rem;
   margin: 0 0 15px;
   line-height: 1;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 1.8rem;
+  }
 }

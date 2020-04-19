@@ -31,12 +31,24 @@ function Filter() {
 
 	return (
 		<form className={cls['filter']}>
-			<input className={cls['filter__search']} value={searchValue} onChange={onSearch} type="text" placeholder='Поиск'/>
+			<input className={cls['filter__search']}
+						 value={searchValue}
+						 onChange={onSearch}
+						 type="search" placeholder="Поиск"
+						 aria-label="Search"/>
 			<div className={cls['filter__selection']}>
-				<select className={`${cls['filter__number']} ${cls['filter__number--wide']}`} onChange={onCategryChagne} name="" id="">
+				<select className={`${cls['filter__number']} ${cls['filter__number--wide']}`}
+								onChange={onCategryChagne}
+								name=""
+								id=""
+								aria-label="Categories">
 					{categories.map( ({ID, Name}) => <option value={ID} key={ID}>{ typeof Name === 'string' ? Name : Name.en }</option> )}
 				</select>
-				<select className={cls['filter__number']} onChange={onNumbersChagne} name="" id="">
+				<select className={cls['filter__number']}
+								onChange={onNumbersChagne}
+								name=""
+								id=""
+								aria-label="Number of games per page">
 					{selectValues.map( value => <option value={value} key={value}>{value}</option> )}
 				</select>
 			</div>

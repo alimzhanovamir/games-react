@@ -5,6 +5,8 @@ const selectValues = [15, 30, 50, 100];
 
 // Stores:
 export const $games = createStore([]);
+export const $totalGames = createStore(0);
+export const $foundGames = createStore(0);
 export const $filterGames = createStore([]);
 export const $loaded = createStore(false);
 
@@ -31,6 +33,8 @@ export const $filterData = combine({
 
 
 // Events:
+export const setTotalGames = createEvent();
+export const setFoundGames = createEvent();
 export const setCategories = createEvent();
 export const searchChange = createEvent();
 export const setFilterCategory = createEvent();
@@ -56,6 +60,8 @@ export const loadEffect = createEffect('get games array',{
 
 // On loadEffect done
 $games.on(loadEffect.done, (state, {result}) => {
+	const games = result.games;
+
 	const arrayFromMerchantsObjects = Object.keys( result.merchants ).map(function ( key) {
 		return { ...result.merchants[key] };
 	});
@@ -66,10 +72,12 @@ $games.on(loadEffect.done, (state, {result}) => {
 		});
 
 	setCategories( [{ID: '', Name: 'All'}, ...categoriesArray] );
-	// showList( result.games.slice(0, $numberOfElementsOnPage.getState()) );
-	return result.games
+	setTotalGames(games.length);
+	return games
 });
 
+$totalGames.on(setTotalGames, (state, gamesCount) => gamesCount);
+$foundGames.on(setFoundGames, (state, findedGames) => findedGames);
 // Set categories in store
 $categories.on(setCategories, (state, result) => result);
 
@@ -132,6 +140,7 @@ $filterGames.on($filterData,(state, result) => {
 	// console.log(indexFirstElementOfPage, indexLastElementOfPage)
 	const res = games.slice( indexFirstElementOfPage, indexLastElementOfPage)
 	// console.log(res)
+	setFoundGames(games.length)
 	return res
 });
 

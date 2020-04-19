@@ -5,6 +5,7 @@ import Header from "../components/header/header";
 import Pagination from "../components/pagination/pagination";
 import {useStore} from "effector-react";
 import {$loaded} from "../store/store";
+import Subheader from "../components/subheader/subheader";
 
 function Layout() {
 	const loadedFlag = useStore($loaded);
@@ -13,7 +14,7 @@ function Layout() {
 			<div className={cls['layout']}>
 				<Header/>
 				<main className={cls['main']}>
-					<h2>Все игры</h2>
+					<Subheader title="All games"/>
 					<Pagination/>
 					<List/>
 					<Pagination/>
