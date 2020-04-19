@@ -82,8 +82,14 @@
   cursor: pointer;
   transition: background-color .3s, color .3s;
 
-  &:hover {
+  &:hover:not(&--in) {
     background-color: gold;
     color: #000;
   }
+}
+
+.game-card__button--in {
+  background-color: green;
+  border-color: green;
+  color: #fff;
 }

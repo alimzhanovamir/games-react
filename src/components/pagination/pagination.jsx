@@ -7,7 +7,6 @@ import {$numberOfPages, $paginationCount, setNumberOfPages} from "../../store/st
 function Pagination() {
 	const desktop = useMediaQuery({ query: '(min-width: 768px)' });
 	const mobile = useMediaQuery({ query: '(max-width: 767px)' });
-	console.log(desktop, mobile)
 	const pages = useStore($paginationCount);
 	let numberOfPages = useStore($numberOfPages);
 
@@ -47,7 +46,6 @@ function Pagination() {
 		}
 
 		pagesArray = pagination(numberOfPages, pages.length);
-		console.log(pagesArray);
 	}
 
 	if ( desktop ) {
@@ -65,7 +63,6 @@ function Pagination() {
 					}
 					{
 						pagesArray.map( (page, index) => {
-						// console.log(page)
 							return(
 								<li className={cls['pagination__item']} key={index}>
 									<button

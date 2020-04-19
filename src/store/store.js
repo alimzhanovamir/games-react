@@ -9,6 +9,7 @@ export const $totalGames = createStore(0);
 export const $foundGames = createStore(0);
 export const $filterGames = createStore([]);
 export const $loaded = createStore(false);
+export const $localStorage = createStore([]);
 
 // Filter stores:
 export const $numbersOfElementsOnPageValues = createStore(selectValues);
@@ -28,7 +29,8 @@ export const $filterData = combine({
 	$searchForm,
 	$currentCategoryID,
 	$numberOfElementsOnPage,
-	$currentPage
+	$currentPage,
+	$localStorage
 });
 
 
@@ -41,6 +43,7 @@ export const setFilterCategory = createEvent();
 export const setNumberOfElementsOnPage = createEvent();
 export const setPagesCount = createEvent();
 export const setNumberOfPages = createEvent();
+export const setToLocalStorage = createEvent();
 
 // Effects:
 export const getRequest = createEffect('get request', {
@@ -71,7 +74,7 @@ $games.on(loadEffect.done, (state, {result}) => {
 			return a.localeCompare(b)
 		});
 
-	setCategories( [{ID: '', Name: 'All'}, ...categoriesArray] );
+	setCategories( [{ID: '', Name: 'All'}, {ID: 'favorites', Name: 'Favorites'}, ...categoriesArray] );
 	setTotalGames(games.length);
 	return games
 });
@@ -108,6 +111,7 @@ $numberOfPages.on(setNumberOfPages, (state, pageNumber) => pageNumber );
 
 //
 $filterGames.on($filterData,(state, result) => {
+	const localStorage = $localStorage.getState();
 	const searchString = $searchForm.getState();
 	const category = $currentCategoryID.getState();
 	let games = $games.getState();
@@ -119,9 +123,15 @@ $filterGames.on($filterData,(state, result) => {
 		})
 	}
 
-	if ( category !== '' ) {
+	if ( category !== '' && category !== 'favorites' ) {
 		games = games.filter( ({CategoryID}) => {
 			return category ? CategoryID.includes( category ) : true
+		})
+	}
+
+	if ( category === 'favorites' ) {
+		games = games.filter( ({ID}) => {
+			return category ? localStorage.includes( ID ) : true
 		})
 	}
 
@@ -151,8 +161,6 @@ $paginationCount.on(setPagesCount, (state, numberOfGames) => {
 	if ( numberOfGames > 0 ) {
 		let x = numberOfGames / $numberOfElementsOnPage.getState()
 		pages = Math.ceil( x);
-		// console.log(x)
-		// console.log(pages)
 	}
 
 	if ( pages > 1 ) {
@@ -166,6 +174,12 @@ $paginationCount.on(setPagesCount, (state, numberOfGames) => {
 
 	return arr
 });
+
+// Set to localStorage
+$localStorage.on(setToLocalStorage, (state, storage) => {
+	localStorage.setItem('favorites', JSON.stringify(storage) );
+	return JSON.parse( localStorage.getItem('favorites') );
+})
 
 // Util function
 function clearCategoiersArray(array) {
