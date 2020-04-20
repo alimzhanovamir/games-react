@@ -3,7 +3,7 @@ import cls from './game-card.module.scss';
 import {$localStorage, setToLocalStorage} from "../../store/store";
 import {useStore} from "effector-react";
 
-function GameCard({ id, inFavorite, imageSrc, name, modClass }) {
+function GameCard({ id, inFavorite, inTop, imageSrc, name }) {
 	const ls = useStore($localStorage);
 	// let localArr;
 	const addToStorage = (id) => {
@@ -18,7 +18,7 @@ function GameCard({ id, inFavorite, imageSrc, name, modClass }) {
 
 
 	return (
-		<article className={` ${cls['game-card']} ${ modClass ? cls['game-card--top'] : null }`}>
+		<article className={` ${cls['game-card']} ${ inTop ? cls['game-card--top'] : '' } `}>
 			<div className={cls['game-card__cover']}>
 				<img className={cls['game-card__image']} src={imageSrc} alt={`Изображение игры ${name}`}/>
 			</div>

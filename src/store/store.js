@@ -7,6 +7,7 @@ const selectValues = [15, 30, 50, 100];
 export const $games = createStore([]);
 export const $totalGames = createStore(0);
 export const $foundGames = createStore(0);
+export const $topGamesIDs = createStore([]);
 export const $filterGames = createStore([]);
 export const $loaded = createStore(false);
 export const $localStorage = createStore([]);
@@ -36,6 +37,7 @@ export const $filterData = combine({
 
 // Events:
 export const setTotalGames = createEvent();
+export const setTopGames = createEvent();
 export const setFoundGames = createEvent();
 export const setCategories = createEvent();
 export const searchChange = createEvent();
@@ -64,6 +66,7 @@ export const loadEffect = createEffect('get games array',{
 // On loadEffect done
 $games.on(loadEffect.done, (state, {result}) => {
 	const games = result.games;
+	const randomTopGames = [];
 
 	const arrayFromMerchantsObjects = Object.keys( result.merchants ).map(function ( key) {
 		return { ...result.merchants[key] };
@@ -74,13 +77,23 @@ $games.on(loadEffect.done, (state, {result}) => {
 			return a.localeCompare(b)
 		});
 
-	setCategories( [{ID: '', Name: 'All'}, {ID: 'favorites', Name: 'Favorites'}, ...categoriesArray] );
+	setCategories( [{ID: '', Name: 'All'}, {ID: 'favorites', Name: '*Favorites'}, ...categoriesArray] );
 	setTotalGames(games.length);
+
+	// Select 5 random games ID
+	for (let i = 0; i < 5; i++) {
+		let x = (Math.random() * games.length).toFixed(0);
+		randomTopGames.push( games[x].ID )
+	}
+
+	console.log(randomTopGames)
+	setTopGames(randomTopGames)
 	console.log(games)
 	return games
 });
 
 $totalGames.on(setTotalGames, (state, gamesCount) => gamesCount);
+$topGamesIDs.on(setTopGames, (state, gamesID) => gamesID);
 $foundGames.on(setFoundGames, (state, findedGames) => findedGames);
 // Set categories in store
 $categories.on(setCategories, (state, result) => result);
@@ -114,6 +127,7 @@ $numberOfPages.on(setNumberOfPages, (state, pageNumber) => pageNumber );
 $filterGames.on($filterData,(state, result) => {
 	console.log('filter')
 	const localStorage = $localStorage.getState();
+	let topGamesIDs = $topGamesIDs.getState();
 	const searchString = $searchForm.getState();
 	const category = $currentCategoryID.getState();
 	let games = $games.getState();
@@ -137,6 +151,8 @@ $filterGames.on($filterData,(state, result) => {
 			return category ? localStorage.includes( ID ) : true
 		})
 	}
+
+	// begin::: favorites list
 	let favoritesList = [];
 
 	games = games.filter( game => {
@@ -145,17 +161,35 @@ $filterGames.on($filterData,(state, result) => {
 			return false
 		}
 		return true
-	})
+	});
 
 	favoritesList = favoritesList.sort(({Name: a}, {Name: b} ) => {
 		return a.en.localeCompare(b.en)
 	});
+	// end::: favorites list
+
+	// begin::: top games list
+	let topGamesList = [];
+
+	games = games.filter( game => {
+		if ( topGamesIDs.some( id => id == game.ID ) ) {
+			topGamesList.push(game);
+			return false
+		}
+		return true
+	});
+
+	topGamesList = topGamesList.sort(({Name: a}, {Name: b} ) => {
+		return a.en.localeCompare(b.en)
+	});
+	// end::: top games list
+
 
 	games = games.sort( ({Name: a}, {Name: b} ) => {
 		return a.en.localeCompare(b.en)
 	});
-
-	totalGames = [...favoritesList, ...games];
+	console.log(favoritesList, topGamesList)
+	totalGames = [...favoritesList, ...topGamesList,...games];
 
 	setPagesCount( totalGames.length );
 
