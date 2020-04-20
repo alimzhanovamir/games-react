@@ -85,10 +85,8 @@ $games.on(loadEffect.done, (state, {result}) => {
 		let x = (Math.random() * games.length).toFixed(0);
 		randomTopGames.push( games[x].ID )
 	}
-
-	console.log(randomTopGames)
 	setTopGames(randomTopGames)
-	console.log(games)
+
 	return games
 });
 
@@ -123,9 +121,9 @@ $numberOfElementsOnPage.on(setNumberOfElementsOnPage, (state, result) => {
 
 $numberOfPages.on(setNumberOfPages, (state, pageNumber) => pageNumber );
 
-//
+// Filter list
 $filterGames.on($filterData,(state, result) => {
-	console.log('filter')
+	// console.log('filter')
 	const localStorage = $localStorage.getState();
 	let topGamesIDs = $topGamesIDs.getState();
 	const searchString = $searchForm.getState();
@@ -156,7 +154,7 @@ $filterGames.on($filterData,(state, result) => {
 	let favoritesList = [];
 
 	games = games.filter( game => {
-		if ( localStorage.some( id => id == game.ID ) ) {
+		if ( localStorage.some( id => +id === +game.ID ) ) {
 			favoritesList.push(game);
 			return false
 		}
@@ -172,7 +170,7 @@ $filterGames.on($filterData,(state, result) => {
 	let topGamesList = [];
 
 	games = games.filter( game => {
-		if ( topGamesIDs.some( id => id == game.ID ) ) {
+		if ( topGamesIDs.some( id => +id === +game.ID ) ) {
 			topGamesList.push(game);
 			return false
 		}
@@ -188,7 +186,7 @@ $filterGames.on($filterData,(state, result) => {
 	games = games.sort( ({Name: a}, {Name: b} ) => {
 		return a.en.localeCompare(b.en)
 	});
-	console.log(favoritesList, topGamesList)
+	// console.log(favoritesList, topGamesList)
 	totalGames = [...favoritesList, ...topGamesList,...games];
 
 	setPagesCount( totalGames.length );

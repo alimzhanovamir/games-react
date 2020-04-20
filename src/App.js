@@ -4,7 +4,7 @@ import Layout from './layout/layout';
 import {loadEffect, setToLocalStorage} from "./store/store";
 
 function App() {
-  console.log('localStorage =', JSON.parse( localStorage.getItem('favorites') ))
+  // console.log('localStorage =', JSON.parse( localStorage.getItem('favorites') ))
   if ( !JSON.parse( localStorage.getItem('favorites') ) ) {
     setToLocalStorage([])
   }

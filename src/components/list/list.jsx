@@ -14,8 +14,8 @@ function List() {
 		return (
 			<ul className={cls['list']}>
 				{ gamesList.map( game => {
-					let inFavorite = localArray.some( id => id == game.ID );
-					let inTop = topGamesIDs.some( id => id == game.ID );
+					let inFavorite = localArray.some( id => +id === +game.ID );
+					let inTop = topGamesIDs.some( id => +id === +game.ID );
 					return (
 						<li className={cls['list__item']} key={game.ID}>
 							<GameCard
