@@ -48,19 +48,16 @@ function Pagination() {
 		pagesArray = pagination(numberOfPages, pages.length);
 	}
 
-	if ( desktop ) {
+	if ( desktop && pages.length > 1 ) {
 		return (
 			<div className={cls['pagination']}>
 				<ul className={cls['pagination__list']}>
-					{
-					pagesArray.length > 1 &&
 					<li className={cls['pagination__item']}>
 						<button
 							className={`${cls['pagination__button']} ${cls['pagination__button--prev']}`}
 							onClick={() => setNumberOfPages(--numberOfPages)}
 							disabled={numberOfPages === 1 ? true : false}>Назад</button>
 					</li>
-					}
 					{
 						pagesArray.map( (page, index) => {
 							return(
@@ -74,20 +71,17 @@ function Pagination() {
 						)
 					}
 					<li className={cls['pagination__item']}>
-						{
-						pagesArray.length > 1 &&
 						<button
 							className={`${cls['pagination__button']} ${cls['pagination__button--next']}`}
 							onClick={() => setNumberOfPages(++numberOfPages)}
 							disabled={numberOfPages === pages.length ? true : false}>Вперед</button>
-						}
 					</li>
 				</ul>
 			</div>
 		)
 	}
 
-	if ( mobile ) {
+	if ( mobile && pages.length > 1) {
 		return (<div className={cls['mobile-pagination']}>
 			<button className={cls['mobile-pagination__button']}
 							onClick={() => setNumberOfPages(--numberOfPages)}
