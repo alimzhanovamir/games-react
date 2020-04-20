@@ -76,6 +76,7 @@ $games.on(loadEffect.done, (state, {result}) => {
 
 	setCategories( [{ID: '', Name: 'All'}, {ID: 'favorites', Name: 'Favorites'}, ...categoriesArray] );
 	setTotalGames(games.length);
+	console.log(games)
 	return games
 });
 
@@ -111,10 +112,12 @@ $numberOfPages.on(setNumberOfPages, (state, pageNumber) => pageNumber );
 
 //
 $filterGames.on($filterData,(state, result) => {
+	console.log('filter')
 	const localStorage = $localStorage.getState();
 	const searchString = $searchForm.getState();
 	const category = $currentCategoryID.getState();
 	let games = $games.getState();
+	let totalGames;
 
 	if ( searchString !== '' ) {
 		games = games.filter( ({Name}) => {
@@ -134,12 +137,28 @@ $filterGames.on($filterData,(state, result) => {
 			return category ? localStorage.includes( ID ) : true
 		})
 	}
+	let favoritesList = [];
+
+	games = games.filter( game => {
+		if ( localStorage.some( id => id == game.ID ) ) {
+			favoritesList.push(game);
+			return false
+		}
+		return true
+	})
+
+	favoritesList = favoritesList.sort(({Name: a}, {Name: b} ) => {
+		return a.en.localeCompare(b.en)
+	});
 
 	games = games.sort( ({Name: a}, {Name: b} ) => {
 		return a.en.localeCompare(b.en)
 	});
 
-	setPagesCount( games.length );
+	totalGames = [...favoritesList, ...games];
+
+	setPagesCount( totalGames.length );
+
 	const numberOfElementsOnPage = $numberOfElementsOnPage.getState()
 	const numberOfPages = $numberOfPages.getState();
 
@@ -147,10 +166,9 @@ $filterGames.on($filterData,(state, result) => {
 
 	const indexLastElementOfPage = numberOfPages * numberOfElementsOnPage;
 
-	// console.log(indexFirstElementOfPage, indexLastElementOfPage)
-	const res = games.slice( indexFirstElementOfPage, indexLastElementOfPage)
-	// console.log(res)
-	setFoundGames(games.length)
+	const res = totalGames.slice( indexFirstElementOfPage, indexLastElementOfPage)
+
+	setFoundGames(totalGames.length)
 	return res
 });
 
